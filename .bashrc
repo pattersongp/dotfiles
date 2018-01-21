@@ -88,9 +88,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alFG'
+alias la='ls -AG'
+alias l='ls -CFG'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -126,6 +126,5 @@ alias home="cd ~"
 alias rm="rm -i"
 export EDITOR=vim
 
-alias ap='ssh -X gpp2109@clac.cs.columbia.edu'
 alias ergsnap='ssh -i ~/.ssh/dig_ocean graham@104.236.10.157'
 # END Columbia CS student settings
