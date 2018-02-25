@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/grahampatterson/.vimrc'
 let g:netrw_dirhist_2='/Users/grahampatterson'
 let g:netrw_dirhist_3='/Users/grahampatterson/Library/Mobile Documents/com~apple~CloudDocs/columbiaSemesters/fall_2017/ap/cs3157-local/lab3/part1'
@@ -7,3 +7,5 @@ let g:netrw_dirhist_4='/Users/grahampatterson/Library/Mobile Documents/com~apple
 let g:netrw_dirhist_5='/Users/grahampatterson/Library/Mobile Documents/com~apple~CloudDocs/columbiaSemesters/fall_2017/ap/cs3157-local/lab3/part1'
 let g:netrw_dirhist_6='/Users/grahampatterson/Library/Mobile Documents/com~apple~CloudDocs/columbiaSemesters/fall_2017/ap/misc/jae-misc'
 let g:netrw_dirhist_7='/Users/grahampatterson/Library/Mobile Documents/com~apple~CloudDocs/columbiaSemesters/fall_2017/ap/misc/jae-misc/tcp'
+let g:netrw_dirhist_8='/Users/grahampatterson/Library/Mobile Documents/com~apple~CloudDocs/columbiaSemesters/spring_2018/1002/grading/COMS-W1004-Spring-2018/assignments/problem-set-1/Graham/ala2172'
+let g:netrw_dirhist_9='/Users/grahampatterson/Library/Mobile Documents/com~apple~CloudDocs/columbiaSemesters/spring_2018/1002/grading/COMS-W1004-Spring-2018/assignments/problem-set-1/Graham/alf2190'
