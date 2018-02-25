@@ -1,0 +1,13 @@
+#! /bin/bash
+
+USAGE='[USAGE] find-linux string_in_file'
+LINUX='/usr/lib/modules/4.9.78-1-lts/build/include/linux'
+
+if [ "$#" -eq 0 ]; then
+	echo $USAGE
+fi
+
+if [ "$#" -eq 1 ]; then
+	echo "Searching Linux codebase..."
+	sudo find $LINUX -type f -print | xargs grep -l $1
+fi
