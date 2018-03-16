@@ -98,23 +98,30 @@ umask 077
 alias ll='ls -alFG'
 alias la='ls -AG'
 alias l='ls -CFG'
+alias pwd='pwd; pwd | pbcopy'
 
 alias home="cd ~"
 alias rm="rm -i"
 export EDITOR=vim
 
+alias os-aws='ssh -i ~/spring_2018/os/graham-key.pem root@ec2-18-222-70-104.us-east-2.compute.amazonaws.com'
 alias arch-vm='ssh graham@127.0.0.1 -p 3022'
 alias ergsnap='ssh -i ~/.ssh/dig_ocean graham@104.236.10.157'
 
 alias jc="javac"
 alias jj="java"
+
+pdf() {
+	open $1 -a /Applications/PDFGuru.app/
+}
+
+summer() {
+	cat $1 | grep / | cut -d':' -f2 | cut -d/ -f1 | awk '{ SUM += $1} END {print SUM}'
+}
+
 jtest() {
-    cp /Users/grahampatterson/spring_2018/1004/grading/COMS-W1004-Spring-2018/assignments/programming-project-2/Graham/data-graham/* .
-    rm -f *.class
-    jc *.java
-    echo "=====Testing Leap Year====="
-    jj LeapYearTester
-    echo ""
-    echo "=====Testing Drunkard======"
-    jj DrunkardTester
+	rm -f *.class
+	sed -i'.b' 's/mode = m/mode=1/g' Computer.java
+	sed -i'.c' 's/mode=m/mode=1/g' Computer.java
+	jc Computer.java Nim.java Game.java Human.java
 }
