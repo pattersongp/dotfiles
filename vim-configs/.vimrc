@@ -4,6 +4,9 @@
 " Sets how many lines of history VIM has to remember
 set history=1000
 
+" Tabstop converts tabs to spaces
+set tabstop=4
+
 " Enable filetype plugins
 filetype plugin on
 filetype plugin indent on
@@ -98,9 +101,9 @@ endif
 autocmd StdinReadPre * let s:std_in=1
 
 " File specific tabbing scheme
-autocmd Filetype c,h setlocal ts=8 sw=4 cindent
-autocmd Filetype cpp,hpp,cxx setlocal ts=2 sw=4 expandtab
-autocmd Filetype python setlocal ts=4 sw=4 noexpandtab
+autocmd Filetype c,h setlocal ts=4 sw=4 cindent
+autocmd Filetype cpp,hpp,cxx setlocal ts=4 sw=4 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 expandtab
 autocmd Filetype go,html,javascript setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 
@@ -400,10 +403,10 @@ call plug#begin('~/.vim/plugged')
 
 " Automatic ctags cleanup on file writes. This plugin searches parent
 " directories for any .tags files and removes stale tags.
-Plug 'craigemery/vim-autotag'
+" Plug 'craigemery/vim-autotag'
 
 " Syntax checking
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic'
 
 " Convenient completion for XML/HTML
 Plug 'othree/xml.vim'
@@ -445,7 +448,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " YCM
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 " Ctrlp
 Plug 'kien/ctrlp.vim'
