@@ -106,6 +106,8 @@ autocmd Filetype cpp,hpp,cxx setlocal ts=4 sw=4 expandtab
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
 autocmd Filetype go,html,javascript setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype ocaml setlocal ts=2 sw=2 expandtab
+autocmd Filetype *.fire setlocal ts=4 sw=2 expandtab
 
 " Set column guide to 80 + 1 for the bar itself.
 if exists('+colorcolumn')
@@ -117,7 +119,7 @@ endif
 autocmd BufWritePre * %s/\s\+$//e
 
 " Highlight lines longer than 80chars
-match ErrorMsg '\%>80v.\+'
+" match ErrorMsg '\%>80v.\+'
 
 " Enable syntax highlighting
 syntax enable
@@ -214,16 +216,6 @@ let g:lightline = {
         \ 'separator': { 'left': ' ', 'right': ' '  },
     \ 'subseparator': { 'left': ' ', 'right': ' '  }
     \ }
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Indent Guide (https://github.com/nathanaelkane/vim-indent-guides)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indent_guides_auto_colors = 0
-
-hi IndentGuidesEven ctermbg=black
-hi IndentGuidesOdd ctermbg=darkgrey
-
-autocmd VimEnter * IndentGuidesEnable
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OmniCppCompletion plugin
@@ -385,6 +377,28 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 endif
 
+" David's remappings
+noremap \t :tabnew<CR>
+noremap \v :vs<CR>
+noremap \s :sp<CR>
+noremap \a :tabprevious<CR>
+noremap \d :tabnext<CR>
+noremap \q :q<CR>
+noremap \Q :bd<CR>
+
+noremap \n :nohl<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" golint
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" restore_views
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set viewoptions=cursor,folds,slash,unix
+" let g:skipview_files = ['*\.vim']
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -445,13 +459,19 @@ Plug 'AndrewRadev/sideways.vim'
 Plug 'itchyny/lightline.vim'
 
 " Indentation guide
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 
 " YCM
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 " Ctrlp
 Plug 'kien/ctrlp.vim'
+
+" Restoring views ie folds and cursor
+Plug 'vim-scripts/restore_view.vim'
+
+" Git Gutter
+Plug 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call plug#end()

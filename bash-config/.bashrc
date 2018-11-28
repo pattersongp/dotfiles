@@ -85,7 +85,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# git tab completion
+source ~/.git-completion.bash
 
+# history stuff
 shopt -s histappend
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
@@ -95,33 +98,19 @@ export HISTIGNORE="pwd:history:exit:ls:ll:ls -la:clear:cd:l:ll:l -l"
 export HISTSIZE=10000
 umask 077
 
-alias ll='ls -alFG'
-alias la='ls -AG'
-alias l='ls -CFG'
-alias pwd='pwd; pwd | pbcopy'
+alias pwc='pwd; pwd | pbcopy'
+alias ll='colorls -la $@'
+alias l='colorls $@'
+alias lt='colorls --tree $@'
 
 alias home="cd ~"
-alias rm="rm -i"
 export EDITOR=vim
-
-alias os-aws='ssh -i ~/spring_2018/os/graham-key.pem root@ec2-18-222-70-104.us-east-2.compute.amazonaws.com'
-alias arch-vm='ssh graham@127.0.0.1 -p 3022'
-alias ergsnap='ssh -i ~/.ssh/dig_ocean graham@104.236.10.157'
+bashrc="~/.bashrc"
 
 alias jc="javac"
 alias jj="java"
 
-pdf() {
-	open $1 -a /Applications/PDFGuru.app/
-}
-
-summer() {
-	cat $1 | grep / | cut -d':' -f2 | cut -d/ -f1 | awk '{ SUM += $1} END {print SUM}'
-}
-
-jtest() {
-	rm -f *.class
-	sed -i'.b' 's/mode = m/mode=1/g' Computer.java
-	sed -i'.c' 's/mode=m/mode=1/g' Computer.java
-	jc Computer.java Nim.java Game.java Human.java
+clean_comp() {
+		rm -f *.class
+		jc *.java
 }
