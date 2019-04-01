@@ -101,7 +101,7 @@ endif
 autocmd StdinReadPre * let s:std_in=1
 
 " File specific tabbing scheme
-autocmd Filetype c,h setlocal ts=4 sw=4 cindent
+autocmd Filetype c,h,s setlocal ts=4 sw=4 cindent
 autocmd Filetype cpp,hpp,cxx setlocal ts=4 sw=4 expandtab
 autocmd Filetype python setlocal ts=4 sw=4 expandtab
 autocmd Filetype go,html,javascript setlocal ts=2 sw=2 expandtab
@@ -252,22 +252,22 @@ highlight PmenuThumb guibg=Black
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YCM settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_config.py'
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.'],
-  \   'objc' : ['->', '.'],
-  \   'cpp,objcpp' : ['->', '.', '::'],
-  \   'perl' : ['->'],
-  \   'php' : ['->', '::'],
-  \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
-  \   'lua' : ['.', ':'],
-  \   'erlang' : [':'],
-  \ }
-
-let g:ycm_complete_in_comments_and_strings=1
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_config.py'
+"let g:ycm_semantic_triggers =  {
+"  \   'c' : ['->', '.'],
+"  \   'objc' : ['->', '.'],
+"  \   'cpp,objcpp' : ['->', '.', '::'],
+"  \   'perl' : ['->'],
+"  \   'php' : ['->', '::'],
+"  \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
+"  \   'lua' : ['.', ':'],
+"  \   'erlang' : [':'],
+"  \ }
+"
+"let g:ycm_complete_in_comments_and_strings=1
+"let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+"let g:ycm_autoclose_preview_window_after_completion = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl-P
@@ -410,44 +410,26 @@ endif
 
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
-" " alternatively, pass a path where Vundle should install plugins
-" "call vundle#begin('~/some/path/here')
-"
-" " let Vundle manage Vundle, required
-
-" Automatic ctags cleanup on file writes. This plugin searches parent
-" directories for any .tags files and removes stale tags.
-" Plug 'craigemery/vim-autotag'
-
-" Syntax checking
-" Plug 'scrooloose/syntastic'
-
-" Convenient completion for XML/HTML
-Plug 'othree/xml.vim'
 
 " Press t to toggle tagbar.
 Plug 'majutsushi/tagbar'
 
-" gc to toggle comments
-Plug 'tomtom/tcomment_vim'
-
 " Browse the file system
 Plug 'scrooloose/nerdtree'
 
-" Fuzzy search
-Plug 'kien/ctrlp.vim'
-
 " Git plugin
 Plug 'tpope/vim-fugitive'
+
+" Linter
+" turned off for *.tex
+Plug 'w0rp/ale'
+let g:ale_pattern_options = {'.*\.tex$': {'ale_enabled': 0} }
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
 " Skeltons for common filetypes
 Plug 'noahfrederick/vim-skeleton'
-
-" PEP8 indentation for python
-Plug 'hynek/vim-python-pep8-indent'
 
 " Better handling of (), [], etc
 Plug 'jiangmiao/auto-pairs'
@@ -458,12 +440,6 @@ Plug 'AndrewRadev/sideways.vim'
 " Lighter alternative to airline
 Plug 'itchyny/lightline.vim'
 
-" Indentation guide
-" Plug 'nathanaelkane/vim-indent-guides'
-
-" YCM
-Plug 'Valloric/YouCompleteMe'
-
 " Ctrlp
 Plug 'kien/ctrlp.vim'
 
@@ -472,6 +448,9 @@ Plug 'vim-scripts/restore_view.vim'
 
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
+
+" Fancy Start Menu
+Plug 'mhinz/vim-startify'
 
 " All of your Plugins must be added before the following line
 call plug#end()
