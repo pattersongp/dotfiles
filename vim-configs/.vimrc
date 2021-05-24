@@ -124,12 +124,6 @@ autocmd BufWritePre * %s/\s\+$//e
 " Enable syntax highlighting
 syntax enable
 
-try
-    colorscheme seattle
-catch
-endtry
-
-set background=dark
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -377,7 +371,7 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 endif
 
-" David's remappings
+" remappings
 noremap \t :tabnew<CR>
 noremap \v :vs<CR>
 noremap \s :sp<CR>
@@ -428,9 +422,6 @@ let g:ale_pattern_options = {'.*\.tex$': {'ale_enabled': 0} }
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
-" Skeltons for common filetypes
-Plug 'noahfrederick/vim-skeleton'
-
 " Better handling of (), [], etc
 Plug 'jiangmiao/auto-pairs'
 
@@ -440,17 +431,16 @@ Plug 'AndrewRadev/sideways.vim'
 " Lighter alternative to airline
 Plug 'itchyny/lightline.vim'
 
-" Ctrlp
-Plug 'kien/ctrlp.vim'
-
 " Restoring views ie folds and cursor
 Plug 'vim-scripts/restore_view.vim'
 
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
 
-" Fancy Start Menu
-Plug 'mhinz/vim-startify'
+" colorscheme vim-code-dark
+Plug 'tomasiser/vim-code-dark'
 
 " All of your Plugins must be added before the following line
 call plug#end()
+
+colorscheme codedark
